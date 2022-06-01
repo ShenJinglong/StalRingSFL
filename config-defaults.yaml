@@ -1,0 +1,24 @@
+alg:
+  value: !!str fl
+num_worker:
+  value: !!int 5
+prop_lens:
+  value: !!str 2:2:2:2:2
+block_num:
+  value: !!int 5
+batch_size:
+  value: !!int 64
+dataset_name:
+  value: !!str cifar10
+dataset_type:
+  value: !!str iid
+model_type:
+  value: !!str resnet18
+lr:
+  value: !!float 0.05
+global_round:
+  value: !!int 100
+local_epoch:
+  value: !!int 1
+run_count:
+  value: !!int 1
