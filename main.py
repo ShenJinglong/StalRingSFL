@@ -75,3 +75,7 @@ if __name__ == "__main__":
         global_model = aggregate_model(local_models, [1/len(local_models)]*len(local_models))
         acc = eval_model(global_model, testloader)
         logging.info(f"acc: {acc}")
+        wandb.log({
+            "round": round,
+            "acc": acc
+        })
