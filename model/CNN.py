@@ -9,16 +9,16 @@ class CNN_Mnist(ModelBase):
         super().__init__()
         self._blocks = torch.nn.ModuleList([
             torch.nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
-            torch.nn.ReLU(),
+            torch.nn.ReLU(inplace=True),
             torch.nn.MaxPool2d(kernel_size=2),
             torch.nn.Conv2d(32, 64, 5, 1, 2),
-            torch.nn.ReLU(),
+            torch.nn.ReLU(inplace=True),
             torch.nn.MaxPool2d(kernel_size=2),
             torch.nn.Conv2d(64, 128, 5, 1, 2),
-            torch.nn.ReLU(),
+            torch.nn.ReLU(inplace=True),
             torch.nn.MaxPool2d(kernel_size=2),
             torch.nn.Conv2d(128, 256, 5, 1, 2),
-            torch.nn.ReLU(),
+            torch.nn.ReLU(inplace=True),
             torch.nn.MaxPool2d(kernel_size=2),
             torch.nn.Flatten(),
             torch.nn.Linear(256, 10)
