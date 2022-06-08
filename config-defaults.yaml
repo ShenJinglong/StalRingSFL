@@ -3,7 +3,7 @@ alg:
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 2:2:2:2:2
+  value: !!str 6:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
@@ -19,6 +19,6 @@ lr:
 global_round:
   value: !!int 100
 local_epoch:
-  value: !!int 1
+  value: !!int 2
 run_count:
   value: !!int 1
