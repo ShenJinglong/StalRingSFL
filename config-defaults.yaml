@@ -1,5 +1,5 @@
 alg:
-  value: !!str fl
+  value: !!str ringsfl
 num_worker:
   value: !!int 5
 prop_lens:
@@ -15,7 +15,7 @@ dataset_type:
 model_type:
   value: !!str resnet18
 lr:
-  value: !!float 0.05
+  value: !!float 0.001
 global_round:
   value: !!int 100
 local_epoch:
