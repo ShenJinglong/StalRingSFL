@@ -8,9 +8,9 @@ metric:
 early_terminate:
   type: hyperband
   min_iter: 3
-name: find-best-lr-resnet
+name: find-best-lr-vgg
 parameters:
   lr:
-    max: 1
+    max: 0.05
     min: 0.0001
     distribution: uniform

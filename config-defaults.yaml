@@ -3,7 +3,7 @@ alg:
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 6:1:1:1:1
+  value: !!str 12:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
@@ -13,11 +13,11 @@ dataset_name:
 dataset_type:
   value: !!str iid
 model_type:
-  value: !!str resnet18
+  value: !!str vgg16
 lr:
   value: !!float 0.001
 global_round:
-  value: !!int 100
+  value: !!int 50
 local_epoch:
   value: !!int 2
 run_count:
