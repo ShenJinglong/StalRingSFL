@@ -2,12 +2,12 @@ program: main.py
 project: StalRingSFL
 entity: sjinglong
 method: grid
-name: resnet18
+name: resnet18-ringsfl
 parameters:
   model_type:
     values: ["resnet18"]
   lr:
-    values: [0.3]
+    values: [0.1] # 0.3 for fl; 0.1 for ringsfl
   num_worker:
     values: [5]
   prop_lens:
@@ -27,4 +27,4 @@ parameters:
   run_count:
     values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   alg:
-    values: ["ringsfl", "fl"]
+    values: ["ringsfl"]
