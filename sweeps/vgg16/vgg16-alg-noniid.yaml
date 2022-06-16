@@ -1,7 +1,7 @@
 program: main.py
-project: StalRingSFL
+project: StalRingSFL_formal
 entity: sjinglong
-method: grid
+method: random
 name: vgg16-alg-noniid
 parameters:
   model_type:
@@ -24,7 +24,5 @@ parameters:
     values: [100]
   local_epoch:
     values: [2]
-  run_count:
-    values: [1, 2, 3, 4, 5]
   alg:
     values: ["ringsfl", "fl"]

@@ -1,13 +1,13 @@
 program: main.py
 project: StalRingSFL_formal
 entity: sjinglong
-method: grid
-name: resnet18-alg-iid
+method: random
+name: resnet18-ratio-noniid
 parameters:
   model_type:
     values: ["resnet18"]
   lr:
-    values: [0.1] # 0.3 for fl; 0.1 for ringsfl
+    values: [0.04]
   num_worker:
     values: [5]
   prop_lens:
@@ -24,7 +24,5 @@ parameters:
     values: [100]
   local_epoch:
     values: [2]
-  run_count:
-    values: [1, 2, 3, 4, 5]
   alg:
     values: ["ringsfl"]
