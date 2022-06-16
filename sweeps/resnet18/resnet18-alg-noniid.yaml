@@ -1,8 +1,8 @@
 program: main.py
-project: StalRingSFL
+project: StalRingSFL_formal
 entity: sjinglong
 method: grid
-name: resnet18-fl
+name: resnet18-alg-noniid
 parameters:
   model_type:
     values: ["resnet18"]
@@ -19,7 +19,7 @@ parameters:
   dataset_name:
     values: ["cifar10"]
   dataset_type:
-    values: ["iid"]
+    values: ["noniid"]
   global_round:
     values: [100]
   local_epoch:
@@ -27,4 +27,4 @@ parameters:
   run_count:
     values: [1, 2, 3, 4, 5]
   alg:
-    values: ["fl"]
+    values: ["ringsfl", "fl"]

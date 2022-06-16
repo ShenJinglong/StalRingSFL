@@ -2,7 +2,7 @@ program: main.py
 project: StalRingSFL
 entity: sjinglong
 method: grid
-name: vgg16
+name: vgg16-alg-iid
 parameters:
   model_type:
     values: ["vgg16"]

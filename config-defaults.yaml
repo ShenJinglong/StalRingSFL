@@ -3,17 +3,17 @@ alg:
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 12:1:1:1:1
+  value: !!str 80:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
   value: !!int 64
 dataset_name:
-  value: !!str cifar10
+  value: !!str mnist
 dataset_type:
   value: !!str iid
 model_type:
-  value: !!str vgg16
+  value: !!str mobilenet
 lr:
   value: !!float 0.001
 global_round:
