@@ -24,5 +24,7 @@ parameters:
     values: [100]
   local_epoch:
     values: [2]
+  cut_point:
+    values: [2]
   alg:
     values: ["ringsfl"]

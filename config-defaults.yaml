@@ -1,24 +1,25 @@
+
 alg:
-  value: !!str ringsfl
+  value: !!str vanilla_sl
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 80:1:1:1:1
+  value: !!str 6:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
   value: !!int 64
 dataset_name:
-  value: !!str mnist
+  value: !!str cifar10
 dataset_type:
   value: !!str iid
 model_type:
-  value: !!str mobilenet
+  value: !!str resnet18
+cut_point:
+  value: !!int 2
 lr:
-  value: !!float 0.001
+  value: !!float 0.1
 global_round:
   value: !!int 50
 local_epoch:
   value: !!int 2
-run_count:
-  value: !!int 1

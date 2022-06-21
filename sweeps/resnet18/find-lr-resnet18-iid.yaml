@@ -36,3 +36,5 @@ parameters:
     values: [1]
   alg:
     values: ["ringsfl"]
+  cut_point:
+    values: [2]

@@ -1,3 +1,5 @@
+
+from typing import Tuple
 import torch
 
 class ModelBase(torch.nn.Module):
@@ -15,3 +17,10 @@ class ModelBase(torch.nn.Module):
         if stop == None:
             stop = self.block_num
         return [param for param in self._blocks[start:stop].parameters()]
+
+    def get_splited_module(self,
+        cut_point:int
+    ) -> Tuple[torch.nn.Module, torch.nn.Module]:
+        if cut_point < 0 or cut_point > self.block_num:
+            raise ValueError(f"Cut point {cut_point} out of module scope [0 - {self.block_num}].")
+        return (torch.nn.Sequential(*self._blocks[:cut_point]), torch.nn.Sequential(*self._blocks[cut_point:]))

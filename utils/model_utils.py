@@ -1,3 +1,4 @@
+
 import sys
 sys.path.append("..")
 import collections
@@ -11,7 +12,10 @@ from model.ResNet18 import *
 from model.CNN import *
 from model.MobileNet import *
 
-def aggregate_model(models: List[torch.nn.Module], weights: List[float]) -> torch.nn.Module:
+def aggregate_model(
+    models: List[torch.nn.Module],
+    weights: List[float]
+) -> torch.nn.Module:
     tmp_model = copy.deepcopy(models[0])
     global_dict = collections.OrderedDict()
     param_keys = tmp_model.state_dict().keys()
@@ -23,7 +27,10 @@ def aggregate_model(models: List[torch.nn.Module], weights: List[float]) -> torc
     tmp_model.load_state_dict(global_dict)
     return tmp_model
 
-def eval_model(model: torch.nn.Module, testloader: torch.utils.data.DataLoader) -> float:
+def eval_model(
+    model: torch.nn.Module,
+    testloader: torch.utils.data.DataLoader
+) -> float:
     model.eval()
     device = next(model.parameters()).device
     total, correct = 0, 0
@@ -38,7 +45,31 @@ def eval_model(model: torch.nn.Module, testloader: torch.utils.data.DataLoader) 
     model.train()
     return 100 * correct / total
 
-def get_optim_params(models: List[torch.nn.Module], prop_lens: List[int]) -> List[List]:
+def eval_splited_model(
+    shallow_model: torch.nn.Module,
+    deep_model: torch.nn.Module,
+    testloader: torch.utils.data.DataLoader
+) -> float:
+    shallow_model.eval()
+    deep_model.eval()
+    device = next(shallow_model.parameters()).device
+    total, correct = 0, 0
+    with torch.no_grad():
+        for inputs, label in testloader:
+            inputs, label = inputs.to(device), label.to(device)
+            fm = shallow_model(inputs)
+            outputs = deep_model(fm)
+            _, pred = outputs.max(1)
+            total += label.size(0)
+            correct += (pred == label).sum().item()
+    shallow_model.train()
+    deep_model.train()
+    return 100 * correct / total
+
+def get_optim_params(
+    models: List[torch.nn.Module],
+    prop_lens: List[int]
+) -> List[List]:
     optim_params = []
     for i in range(len(models)):
         params, start = [], 0
@@ -68,3 +99,10 @@ def construct_model(
         return MobileNetSimple_Mnist()
     else:
         raise ValueError(f"Unrecognized model type: `{model_type}`")
+
+def ratio_model_grad(
+    model: torch.nn.Module,
+    ratio: float
+) -> None:
+    for p in model.parameters():
+        p.grad *= ratio

@@ -1,3 +1,5 @@
+
+import logging
 from typing import List
 import numpy as np
 import torch
@@ -26,6 +28,7 @@ class DatasetManager:
             self.__testset = torchvision.datasets.CIFAR10(path, train=False, transform=transform, download=True)
         else:
             raise ValueError(f"Unrecognized dataset name: `{dataset_name}`")
+        logging.info(f"dataset [{dataset_name}] loaded: {len(self.__trainset)} samples for training, {len(self.__testset)} samples for testing.")
         split_step = int(len(self.__trainset) / block_num)
 
         order = np.argsort(self.__trainset.targets)
