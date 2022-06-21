@@ -32,8 +32,6 @@ parameters:
     values: [50]
   local_epoch:
     values: [2]
-  run_count:
-    values: [1]
   alg:
     values: ["ringsfl"]
   cut_point:
