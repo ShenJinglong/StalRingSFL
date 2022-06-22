@@ -36,17 +36,17 @@ class DatasetManager:
             torch.utils.data.Subset(self.__trainset, order[split_step*i:split_step*(i+1)]) for i in range(block_num)
         ]
         self.__noniid_trainloaders = [
-            torch.utils.data.DataLoader(trainsubset, batch_size=batch_size, shuffle=True) for trainsubset in noniid_trainsubsets
+            torch.utils.data.DataLoader(trainsubset, batch_size=batch_size, shuffle=True, drop_last=True) for trainsubset in noniid_trainsubsets
         ]
 
         iid_trainsubsets = [
             torch.utils.data.Subset(self.__trainset, range(split_step*i, split_step*(i+1))) for i in range(block_num)
         ]
         self.__iid_trainloaders = [
-            torch.utils.data.DataLoader(trainsubset, batch_size=batch_size, shuffle=True) for trainsubset in iid_trainsubsets
+            torch.utils.data.DataLoader(trainsubset, batch_size=batch_size, shuffle=True, drop_last=True) for trainsubset in iid_trainsubsets
         ]
 
-        self.__testloader = torch.utils.data.DataLoader(self.__testset, batch_size=batch_size, shuffle=False)
+        self.__testloader = torch.utils.data.DataLoader(self.__testset, batch_size=batch_size, shuffle=False, drop_last=True)
 
     def get_iid_loader(self,
         index:int
