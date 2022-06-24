@@ -7,7 +7,7 @@ parameters:
   model_type:
     values: ["vgg16"]
   lr:
-    values: [0.01]
+    values: [0.0015]
   num_worker:
     values: [5]
   prop_lens:
