@@ -10,7 +10,7 @@ from utils.model_utils import aggregate_model, eval_model, construct_model, get_
 
 def train(config, device):
 
-    logging.info(f"@ ringsfl [{device}]")
+    logging.info(f"@ ringsfl_v2 [{device}]")
     dataset_manager = DatasetManager(config.dataset_name, "./datasets", config.block_num, config.batch_size)
     if config.dataset_type == "iid":
         trainloaders = dataset_manager.get_iid_loaders(config.num_worker)
@@ -55,9 +55,6 @@ def train(config, device):
                     loss.backward()
                 
                 [(optim.step(), optim.zero_grad()) for optim in optims]
-                # for optim in optims:
-                #     optim.step()
-                #     optim.zero_grad()
 
         global_model = aggregate_model(local_models, [1/len(local_models)]*len(local_models))
         round_comm += model_size * len(local_models)

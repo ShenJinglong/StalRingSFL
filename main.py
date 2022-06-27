@@ -3,7 +3,7 @@ import torch
 import logging
 import wandb
 
-from alg import ringsfl, splitfed, vanilla_fl, vanilla_sl
+from alg import ringsfl_v1, ringsfl_v2, splitfed, vanilla_fl, vanilla_sl
 from utils.hardware_utils import get_free_gpu
 
 logging.basicConfig(
@@ -18,8 +18,10 @@ config = wandb.config
 DEVICE = f"cuda:{get_free_gpu()}" if torch.cuda.is_available() else "cpu"
 
 if __name__ == "__main__":
-    if config.alg == "ringsfl":
-        ringsfl.train(config, DEVICE)
+    if config.alg == "ringsfl_v1":
+        ringsfl_v1.train(config, DEVICE)
+    elif config.alg == "ringsfl_v2":
+        ringsfl_v2.train(config, DEVICE)
     elif config.alg == "vanilla_fl":
         vanilla_fl.train(config, DEVICE)
     elif config.alg == "splitfed":

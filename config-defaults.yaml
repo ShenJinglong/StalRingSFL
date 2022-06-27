@@ -1,6 +1,6 @@
 
 alg:
-  value: !!str ringsfl
+  value: !!str ringsfl_v2
 num_worker:
   value: !!int 5
 prop_lens:
@@ -18,7 +18,7 @@ model_type:
 cut_point:
   value: !!int 2
 lr:
-  value: !!float 0.05
+  value: !!float 0.06
 global_round:
   value: !!int 50
 local_epoch:

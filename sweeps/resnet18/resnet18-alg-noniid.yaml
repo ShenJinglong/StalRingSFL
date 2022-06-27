@@ -27,4 +27,4 @@ parameters:
   cut_point:
     values: [2]
   alg:
-    values: ["ringsfl", "vanilla_fl", "splitfed", "vanilla_sl"]
+    values: ["ringsfl_v1", "ringsfl_v2", "vanilla_fl", "splitfed", "vanilla_sl"]
