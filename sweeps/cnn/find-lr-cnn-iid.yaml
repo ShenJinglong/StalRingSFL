@@ -1,0 +1,38 @@
+program: main.py
+project: StalRingSFL 
+entity: sjinglong
+method: bayes
+metric:
+  name: acc
+  goal: maximize
+early_terminate:
+  type: hyperband
+  min_iter: 3
+name: find-lr-cnn-iid
+parameters:
+  lr:
+    max: 0.1
+    min: 0.01
+    distribution: uniform
+  model_type:
+    values: ["cnn"]
+  num_worker:
+    values: [5]
+  prop_lens:
+    values: ["10:1:1:1:1"]
+  block_num:
+    values: [5]
+  batch_size:
+    values: [64]
+  dataset_name:
+    values: ["mnist"]
+  dataset_type:
+    values: ["iid"]
+  global_round:
+    values: [50]
+  local_epoch:
+    values: [2]
+  alg:
+    values: ["ringsfl"]
+  cut_point:
+    values: [2]
