@@ -54,7 +54,7 @@ def train(config, device):
                     loss = loss_fn(inputs, labels)
                     loss.backward()
                 
-                [(optim.step(), optim.zero_grad()) for optim in optims]
+                [optim.step() for optim in optims]
 
         global_model = aggregate_model(local_models, [1/len(local_models)]*len(local_models))
         round_comm += model_size * len(local_models)
