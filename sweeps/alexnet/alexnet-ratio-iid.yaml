@@ -1,0 +1,30 @@
+program: main.py
+project: StalRingSFL_formal
+entity: sjinglong
+method: random
+name: alexnet-ratio-iid
+parameters:
+  model_type:
+    values: ["alexnet"]
+  lr:
+    values: [0.006]
+  num_worker:
+    values: [5]
+  prop_lens:
+    values: ["13:1:1:1:1", "11:3:1:1:1", "9:5:1:1:1", "7:5:3:1:1", "5:5:3:3:1", "4:4:3:3:3"]
+  block_num:
+    values: [5]
+  batch_size:
+    values: [64]
+  dataset_name:
+    values: ["mnist"]
+  dataset_type:
+    values: ["iid"]
+  global_round:
+    values: [100]
+  local_epoch:
+    values: [2]
+  cut_point:
+    values: [2]
+  alg:
+    values: ["ringsfl_v2"]

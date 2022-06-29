@@ -4,7 +4,7 @@ alg:
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 10:1:1:1:1
+  value: !!str 8:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
@@ -14,11 +14,11 @@ dataset_name:
 dataset_type:
   value: !!str iid
 model_type:
-  value: !!str cnn
+  value: !!str lenet
 cut_point:
   value: !!int 2
 lr:
-  value: !!float 0.06
+  value: !!float 0.05
 global_round:
   value: !!int 50
 local_epoch:
