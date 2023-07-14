@@ -14,7 +14,7 @@ from utils.model_utils import (aggregate_model, construct_model, eval_model,
 
 def train(config, device):
 
-    logging.info(f"@ ringsfl_v2 [{device}]")
+    logging.info(f"@ ringsfl_subring [{device}]")
     dataset_manager = DatasetManager(config.dataset_name, "./datasets", config.block_num, config.batch_size)
     if config.dataset_type == "iid":
         trainloaders = dataset_manager.get_iid_loaders(config.num_worker)
