@@ -1,9 +1,11 @@
 
-import torch
 import logging
-import wandb
 
-from alg import ringsfl_v1, ringsfl_v2, splitfed, vanilla_fl, vanilla_sl
+import torch
+
+import wandb
+from alg import (ringsfl_drop, ringsfl_v1, ringsfl_v2, splitfed, vanilla_fl,
+                 vanilla_fl_drop, vanilla_sl)
 from utils.hardware_utils import get_free_gpu
 
 logging.basicConfig(
@@ -11,7 +13,7 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 wandb.init(
-    project="StalRingSFL",
+    project="StalRingSFL_Drop",
     entity="sjinglong"
 )
 config = wandb.config
@@ -28,5 +30,9 @@ if __name__ == "__main__":
         splitfed.train(config, DEVICE)
     elif config.alg == "vanilla_sl":
         vanilla_sl.train(config, DEVICE)
+    elif config.alg == "ringsfl_drop":
+        ringsfl_drop.train(config, DEVICE)
+    elif config.alg == "vanilla_fl_drop":
+        vanilla_fl_drop.train(config, DEVICE)
     else:
         raise ValueError(f"Unrecognized alg: `{config.alg}`")

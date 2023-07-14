@@ -7,7 +7,7 @@ parameters:
   model_type:
     values: ["alexnet"]
   lr:
-    values: [0.006]
+    values: [0.003]
   num_worker:
     values: [5]
   prop_lens:

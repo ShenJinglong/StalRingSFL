@@ -1,25 +1,51 @@
 
+# alg:
+#   value: !!str vanilla_fl
+# num_worker:
+#   value: !!int 5
+# prop_lens:
+#   value: !!str 6:5:1:1:1
+# block_num:
+#   value: !!int 480
+# batch_size:
+#   value: !!int 8
+# dataset_name:
+#   value: !!str mnist
+# dataset_type:
+#   value: !!str iid
+# model_type:
+#   value: !!str cnn
+# cut_point:
+#   value: !!int 2
+# lr:
+#   value: !!float 0.05
+# global_round:
+#   value: !!int 40
+# local_epoch:
+#   value: !!int 2
+
+# ringsfl_drop
 alg:
-  value: !!str ringsfl_v2
+  value: !!str vanilla_fl_drop
 num_worker:
   value: !!int 5
 prop_lens:
-  value: !!str 8:1:1:1:1
+  value: !!str 6:1:1:1:1
 block_num:
   value: !!int 5
 batch_size:
   value: !!int 64
 dataset_name:
-  value: !!str mnist
+  value: !!str cifar10
 dataset_type:
   value: !!str iid
 model_type:
-  value: !!str lenet
+  value: !!str resnet18
 cut_point:
   value: !!int 2
 lr:
-  value: !!float 0.05
+  value: !!float 0.1
 global_round:
-  value: !!int 50
+  value: !!int 100
 local_epoch:
   value: !!int 2

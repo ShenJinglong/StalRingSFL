@@ -1,23 +1,23 @@
 program: main.py
-project: StalRingSFL_formal
+project: StalRingSFL_Drop
 entity: sjinglong
 method: random
-name: alexnet-alg-iid
+name: drop-10
 parameters:
   model_type:
-    values: ["alexnet"]
+    values: ["resnet18"]
   lr:
-    values: [0.003]
+    values: [0.1] # 0.3 for fl; 0.1 for ringsfl
   num_worker:
     values: [5]
   prop_lens:
-    values: ["13:1:1:1:1"]
+    values: ["6:1:1:1:1"]
   block_num:
     values: [5]
   batch_size:
     values: [64]
   dataset_name:
-    values: ["mnist"]
+    values: ["cifar10"]
   dataset_type:
     values: ["iid"]
   global_round:
@@ -27,4 +27,5 @@ parameters:
   cut_point:
     values: [2]
   alg:
-    values: ["ringsfl_v1", "ringsfl_v2", "vanilla_fl", "splitfed", "vanilla_sl"]
+    values: ["ringsfl_drop", "ringsfl_v2", "vanilla_fl_drop"]
+
