@@ -1,0 +1,31 @@
+program: main.py
+project: StalRingSFL_Drop
+entity: sjinglong
+method: random
+name: subring-iid
+parameters:
+  model_type:
+    values: ["resnet18"]
+  lr:
+    values: [0.1] # 0.3 for fl; 0.1 for ringsfl
+  num_worker:
+    values: [6]
+  prop_lens:
+    values: ["5:1:1:1:1:1"]
+  block_num:
+    values: [6]
+  batch_size:
+    values: [64]
+  dataset_name:
+    values: ["cifar10"]
+  dataset_type:
+    values: ["iid"]
+  global_round:
+    values: [100]
+  local_epoch:
+    values: [2]
+  cut_point:
+    values: [2]
+  alg:
+    values: ["ringsfl_subring", "ringsfl_v2"]
+

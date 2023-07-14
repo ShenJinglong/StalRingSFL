@@ -5,7 +5,7 @@ import torch
 
 import wandb
 from alg import (ringsfl_drop, ringsfl_v1, ringsfl_v2, splitfed, vanilla_fl,
-                 vanilla_fl_drop, vanilla_sl)
+                 vanilla_fl_drop, vanilla_sl, ringsfl_subring)
 from utils.hardware_utils import get_free_gpu
 
 logging.basicConfig(
@@ -34,5 +34,7 @@ if __name__ == "__main__":
         ringsfl_drop.train(config, DEVICE)
     elif config.alg == "vanilla_fl_drop":
         vanilla_fl_drop.train(config, DEVICE)
+    elif config.alg == "ringsfl_subring":
+        ringsfl_subring.train(config, DEVICE)
     else:
         raise ValueError(f"Unrecognized alg: `{config.alg}`")
