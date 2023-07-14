@@ -34,7 +34,7 @@ def train(config, device):
     for round in range(config.global_round):
         logging.info(f"round: {round}")
 
-        part_index = sorted(np.random.choice(len(local_models), (len(local_models)-1,), replace=False))
+        part_index = sorted(np.random.choice(len(local_models), (len(local_models)-2,), replace=False))
         logging.info(f"part_index: {part_index}")
 
         round_local_models = [local_models[ii] for ii in part_index]
@@ -42,9 +42,9 @@ def train(config, device):
         round_optims = [optims[ii] for ii in part_index]
         
         if 0 not in part_index:
-            round_prop_lens = [3,3,2,2]
+            round_prop_lens = [4,3,3]
         else:
-            round_prop_lens = [7,1,1,1]
+            round_prop_lens = [8,1,1]
 
         [model.load_state_dict(global_model.state_dict()) for model in round_local_models]
 

@@ -32,7 +32,7 @@ def train(config, device):
     for round in range(config.global_round):
         logging.info(f"round: {round}")
 
-        part_index = sorted(np.random.choice(len(local_models), (len(local_models)-1,), replace=False))
+        part_index = sorted(np.random.choice(len(local_models), (len(local_models)-2,), replace=False))
         logging.info(f"part_index: {part_index}")
 
         round_local_models = [local_models[ii] for ii in part_index]

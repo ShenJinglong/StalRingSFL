@@ -2,7 +2,7 @@ program: main.py
 project: StalRingSFL_Drop
 entity: sjinglong
 method: random
-name: drop-10
+name: drop-iid
 parameters:
   model_type:
     values: ["resnet18"]
